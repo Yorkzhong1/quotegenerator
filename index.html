@@ -1,0 +1,81 @@
+<!DOCTYPE=html>
+<html lang=en>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <meta charset="utf-utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Raddom Quote Generator</title>
+
+
+  </head>
+
+
+  <body>
+    <script src="./quote.js"></script>
+    <script>
+      window.onload=init;
+      function init(){
+        generateQuote()
+
+      }
+
+      function generateQuote(){
+        let index=Math.floor(Math.random()*QUOTEBANK.length)
+        let quote=QUOTEBANK[index].quote
+        let author=QUOTEBANK[index].author
+        document.getElementById('text').innerText=quote
+        document.getElementById('author').innerText=author
+        let twitterlink="https://twitter.com/intent/tweet?hashtags=quotes "
+        twitterlink+= quote+author
+        document.getElementById("tweet-quote").href=twitterlink
+
+      }
+
+    </script>
+
+
+
+
+
+
+
+
+  <div class="container">
+      <wrapper id="quote-box">
+              <div class="row py-5">
+                  <div class="col-md-8 offset-md-2">
+                        <div class="card text-center">
+                            <div class="card-header">
+                              Random Quote Generator
+                            </div>
+
+                            <div class="card-body">
+                              <p class="card-text">
+                                <h3 id="text" class="text-center">quote</h3>
+                                <h3 id="author" class="text-center">Author</h3>
+                              </p>
+                              <button id="new-quote" onClick="generateQuote();" class="btn btn-danger text-center"><em>New Quote</em></button>
+                              <a class="btn btn-primary btn-block" id="tweet-quote" title="Tweet this quote!" target="_blank" href="#">
+                                        Tweet this quote!</a>
+
+                            </div>
+                            <div class="card-footer text-muted">
+                              by Yuan Zhong
+                            </div>
+                      </div>
+
+
+                    </div>
+              </div>
+
+      </wrapper>
+    </div>
+
+  </body>
+
+
+
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>
